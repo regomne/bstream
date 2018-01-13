@@ -95,8 +95,8 @@ func (b *BStream) ReadBit() (bit, error) {
 	}
 
 	// handle bit retrieval
-	retBit := b.stream[0] & 0x80
-	b.stream[0] <<= 1
+	retBit := b.stream[0] & 1
+	b.stream[0] >>= 1
 	b.remainCount--
 
 	return retBit != 0, nil
