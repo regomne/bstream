@@ -34,7 +34,7 @@ func (b *BStream) WriteBit(input bit) {
 
 	latestIndex := len(b.stream) - 1
 	if input {
-		b.stream[latestIndex] |= 1 << (b.remainCount - 1)
+		b.stream[latestIndex] |= 1 << (8 - b.remainCount)
 	}
 	b.remainCount--
 }
